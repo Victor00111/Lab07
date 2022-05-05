@@ -1,3 +1,17 @@
+/**
+ * <h1>Lab 7 </h1>
+ * 
+ * <h2>CISC 181-40L Spring 2022</h2>
+ * 
+ * <h3>University of Delaware</h3>
+ * 
+ * <p>
+ * // Rules for the game and qualifications for actions
+ * 
+ * @author Zachariah Barraza, Cam Kennedy, and Victor Tung
+ * 
+ * @since (2022-05-05)
+ */
 public class Rules {
     //Not Done Yet!
 
