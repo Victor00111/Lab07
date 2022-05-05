@@ -1,3 +1,17 @@
+/**
+ * <h1>Lab 7</h1>
+ * 
+ * <h2>CISC 181-40L Spring 2022</h2>
+ * 
+ * <h3>University of Delaware</h3>
+ * 
+ * <p>
+ * // Abstract class for Action which sets the perform action.
+ * 
+ * @author Zachariah Barraza
+ * 
+ * @since (2022-05-05)
+ */
 public abstract class Action {
 
     GameS22 game;
