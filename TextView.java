@@ -1,15 +1,15 @@
 /**
  * <h1>Lab 7 </h1>
- * 
+ *
  * <h2>CISC 181-40L Spring 2022</h2>
- * 
+ *
  * <h3>University of Delaware</h3>
- * 
+ *
  * <p>
  * // Text view of the game
- * 
+ *
  * @author Zachariah Barraza, Cam Kennedy, and Victor Tung
- * 
+ *
  * @since (2022-05-05)
  */
 import java.util.Scanner;
@@ -73,15 +73,16 @@ public class TextView {
     }
 
     public void getNextPlayersAction(GameS22 game) {
+        Scanner scr = new Scanner(System.in);
         this.actionType = getUsersNextActionType();
         System.out.println("Enter the index for the From Row");
-        this.row = getValidInt(0, game.setGameBoard().getNumRows()-1);
+        this.row = getValidInt(0, game.getGameBoard().getNumRows()-1,scr);
         System.out.println("Enter the index for the From Column");
-        this.col = getValidInt(0, game.setGameBoard().getNumColumns()-1);
+        this.col = getValidInt(0, game.getGameBoard().getNumColumns()-1,scr);
         System.out.println("Enter the index for the To Row");
-        this.mRow = getValidInt(0, game.setGameBoard().getNumRows()-1);
+        this.mRow = getValidInt(0, game.getGameBoard().getNumRows()-1,scr);
         System.out.println("Enter the index for the From Column");
-        this.mCol = getValidInt(0, game.setGameBoard().getNumColumns()-1);
+        this.mCol = getValidInt(0, game.getGameBoard().getNumColumns()-1,scr);
     }
 
     public void updateView(GameS22 game) {

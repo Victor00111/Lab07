@@ -1,15 +1,15 @@
 /**
  * <h1>Lab 7 </h1>
- * 
+ *
  * <h2>CISC 181-40L Spring 2022</h2>
- * 
+ *
  * <h3>University of Delaware</h3>
- * 
+ *
  * <p>
  * // Rules for the game and qualifications for actions
- * 
+ *
  * @author Zachariah Barraza, Cam Kennedy, and Victor Tung
- * 
+ *
  * @since (2022-05-05)
  */
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class Rules {
     int col2;
     char action;
 
-    public boolean getValidAction(GameS22 game, int row1, int col1, int row2, int col2, char action){
+    public static boolean checkValidAction(GameS22 game, int row1, int col1, int row2, int col2, char action){
         boolean tmp = false;
         //Simplify comparing main square
         Piece check = game.getGameBoard().getSpaces()[row1][col1].getPiece();
