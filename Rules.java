@@ -78,9 +78,16 @@ public class Rules {
                 //need to check other team
                 tmp = true;
             }
-            if(check.equals(Evil) && empty && game.getGameBoard().getSpaces()[row2][col2].getPiece().equals(Minion) && check.canAttack()){
+            if(check.equals(Evil) && empty && check.canAttack()){
                 //need to check other team hunger
-                tmp = true;
+                if(game.getGameBoard().getSpaces()[row2][col2].getPiece().equals(Minion) && CHECK_TEAM_OF_MINION == SAME_TEAM){
+                    //For friendly minion ^
+                    tmp = true;
+                }
+                else if(CHECK_TEAM_OF_OTHER_PIECE == OTHER_TEAM){
+                    tmp = true;
+                }
+                
             }
 
         }
