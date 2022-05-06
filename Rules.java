@@ -12,6 +12,8 @@
  * 
  * @since (2022-05-05)
  */
+import java.util.ArrayList;
+
 public class Rules {
     //Not Done Yet!
 
@@ -26,6 +28,7 @@ public class Rules {
         boolean tmp = false;
         //Simplify comparing main square
         Piece check = game.getGameBoard().getSpaces()[row1][col1].getPiece();
+        Piece otherPiece = game.getGameBoard().getSpaces()[row2][col2].getPiece();
 
 
         //For checking pieces
@@ -33,11 +36,21 @@ public class Rules {
         PieceBlueHen Blue = new PieceBlueHen();
         PieceEvilMinion Evil = new PieceEvilMinion();
         PieceMinion Minion = new PieceMinion();
+
         //simplify checks
-        Piece open = game.getGameBoard().getSpaces()[row2][col2].getPiece();
-        boolean empty = game.getGameBoard().getSpaces()[row2][col2].isEmpty();
         Team other = game.getOpponentTeam();
         Team current = game.getCurrentTeam();
+
+        //To check can attacks
+        PieceBuzz BuzzLasor = (PieceBuzz) game.getGameBoard().getSpaces()[row1][col1].getPiece();
+        PieceEvilMinion EvilHunger = (PieceEvilMinion) game.getGameBoard().getSpaces()[row1][col1].getPiece();
+
+        //Checking teams
+        String currTeam = game.getCurrentTeam().getTeamColor();
+        String oppTeam = game.getOpponentTeam().getTeamColor();
+        String mainTeam = game.getGameBoard().getSpaces()[row1][col1].getSquareColor();
+        String otherTeam = game.getGameBoard().getSpaces()[row2][col2].getSquareColor();
+
 
 
 
@@ -47,47 +60,46 @@ public class Rules {
         if(!current.equals(other) || !game.isTurn(game.getCurrentTeam())){
             tmp = false;
         }
-        else if(action == 'M'){
-            if(open == null ){
+        else if(action == 'M' && currTeam == mainTeam){
+            if(otherPiece == null ){
                 tmp = true;
             }
         }
-        else if(action == 'S'){
+        else if(action == 'S' && currTeam == mainTeam){
             if(!check.equals(Buzz)){
-                if(open == null){
+                if(otherPiece == null){
                     tmp = true;
                 }
             }
 
         }
-        else if(action == 'R'){
+        else if(action == 'R' && currTeam == mainTeam){
             if(check.equals(Buzz)){
-                if(open != null){
+                if(otherPiece != null){
                     tmp = true;
                 }
             }
 
         }
         else if(action == 'A'){
-            if(check.equals(Buzz) && empty && check.canAttack()){
-                //need to check other team and lazor
+            if(check.equals(Buzz)  && BuzzLasor.canAttack()){
+                if(oppTeam == otherTeam){
+                    tmp = true;
+                }
+            }
+            if(check.equals(Blue) && currTeam == mainTeam){
+                if(oppTeam == otherTeam){
+                    tmp = true;
+                }
+            }
+            if(check.equals(Evil) && EvilHunger.canAttack()){
+                if(otherPiece.equals(Minion) && oppTeam == mainTeam){
+                    tmp = true;
+                }
+                else if(oppTeam == otherTeam){
+                    tmp = true;
+                }
 
-                    tmp = true;
-            }
-            if(check.equals(Blue) && empty){
-                //need to check other team
-                tmp = true;
-            }
-            if(check.equals(Evil) && empty && check.canAttack()){
-                //need to check other team hunger
-                if(game.getGameBoard().getSpaces()[row2][col2].getPiece().equals(Minion) && CHECK_TEAM_OF_MINION == SAME_TEAM){
-                    //For friendly minion ^
-                    tmp = true;
-                }
-                else if(CHECK_TEAM_OF_OTHER_PIECE == OTHER_TEAM){
-                    tmp = true;
-                }
-                
             }
 
         }
