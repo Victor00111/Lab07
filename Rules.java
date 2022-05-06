@@ -44,7 +44,7 @@ public class Rules {
         if(!game.board.inBounds(row1, col1) || !game.board.inBounds(row2, col2) && !check.validMovePath(row1,col1,row2,col2)){
             tmp = false;
         }
-        if(game.getCurrentTeam() != game.getOpponentTeam() && !game.isTurn(game.getCurrentTeam())){
+        if(!current.equals(other) || !game.isTurn(game.getCurrentTeam())){
             tmp = false;
         }
         else if(action == 'M'){
