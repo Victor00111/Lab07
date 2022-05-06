@@ -69,7 +69,7 @@ public class Rules {
 
         }
         else if(action == 'A'){
-            if(check.equals(Buzz) && empty){
+            if(check.equals(Buzz) && empty && check.canAttack()){
                 //need to check other team and lazor
 
                     tmp = true;
@@ -78,8 +78,8 @@ public class Rules {
                 //need to check other team
                 tmp = true;
             }
-            if(check.equals(Evil) && empty){
-                //need to check other team and minion and hunger
+            if(check.equals(Evil) && empty && game.getGameBoard().getSpaces()[row2][col2].getPiece().equals(Minion) && check.canAttack()){
+                //need to check other team hunger
                 tmp = true;
             }
 
