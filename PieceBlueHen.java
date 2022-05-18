@@ -71,7 +71,15 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter{
 
     @Override
     public boolean validAttackPath(int x1, int y1, int x2, int y2) {
-        return true;
+        if(canFly()){
+            return true;
+        }else{
+            if(x2== x1+1 || x2 == x1-1){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
     public void setNumRecruits(int numRecruits)    {
@@ -80,7 +88,15 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter{
 
     @Override
     public boolean validRecruitPath(int x1, int y1, int x2, int y2) {
-        return true;
+        if(canFly()){
+            return true;
+        }else{
+            if(y2== y1+1 || y2 == y1-1){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
     public void setHidden(boolean hidden) {
@@ -102,21 +118,33 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter{
         System.out.println("Go UD!");
     }
 
-    public boolean validMovePath(int fromSquareRow, int fromSquareCol,
-                                 int toSquareRow, int toSquareCol) {
-        // You will implement this method in a later step
-        // each Piece will have a different valid path
-        return true;
+    public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
+        if(canFly()){
+            return true;
+        }else{
+            if((fromSquareCol+1==toSquareCol || fromSquareCol-1==toSquareCol) && (fromSquareRow+1==toSquareRow || fromSquareRow-1==toSquareRow)){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
     public PieceBlueHen spawn()    {
-        PieceBlueHen copyHen =
-                new PieceBlueHen(Character.toLowerCase(super.symbol),
-                        super.teamColor,this.numAttacks,this.numRecruits,
-                        false,false);
+        PieceBlueHen copyHen = new PieceBlueHen(Character.toLowerCase(super.symbol), super.teamColor,this.numAttacks,this.numRecruits, false,false);
         return copyHen;
     }
-
+    public boolean validSpawnPath(int x1, int y1, int x2, int y2){
+        if(canFly()){
+            return true;
+        }else{
+            if((x2==x1+1 && y2 == y1+1)||(x2==x1+1 && y2 == y1-1)||(x2==x1-1 && y2 == y1+1)||(x2==x1-1 && y2 == y1-1)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }
     public boolean canSpawn(){
         return true;
     }

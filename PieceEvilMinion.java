@@ -37,7 +37,18 @@ public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter{
 
     @Override
     public boolean validAttackPath(int x1, int y1, int x2, int y2) {
-        return true;
+        if((x1 == x2) && (y1 != y2)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public boolean validRecruitPath(int x1, int y1, int x2, int y2) {
+        if((x1 == x2) && (y1 != y2)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void updateHungry(){
@@ -51,11 +62,21 @@ public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter{
     public void speak(){
         System.out.println("Roar!");
     }
-    public boolean validMovePath(){
-        //implemented later
-        return true;
+    public boolean validMovePath(int x1, int y1, int x2, int y2){
+        if((x1 == x2) && (y1 != y2)){
+            return true;
+        }else{
+            return false;
+        }
     }
     public PieceEvilMinion spawn(){
         return new PieceEvilMinion(super.getSymbol(),super.getTeamColor(),1,0,0,false,false);
+    }
+    public boolean validSpawnPath(int x1, int y1, int x2, int y2){
+        if((x1 == x2) && (y1 != y2)){
+            return true;
+        }else{
+            return false;
+        }
     }
 }

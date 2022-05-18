@@ -26,6 +26,7 @@ public abstract class Piece {
     public abstract void speak();
     public abstract boolean validMovePath(int fromSquareRow,int fromSquareCol, int toSquareRow,int toSquareCol);
     public abstract char getSymbol();
+    public abstract boolean validSpawnPath(int x1, int y1, int x2, int y2);
     public abstract String getTeamColor();
     public abstract boolean isHidden();
     public abstract boolean isOriginal();

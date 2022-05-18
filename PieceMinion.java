@@ -60,18 +60,23 @@ public class PieceMinion extends Piece implements Recruiter{
 
     @Override
     public boolean validRecruitPath(int x1, int y1, int x2, int y2) {
-        return true;
+        if((x1 == x2) && (y1 != y2)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void speak(){
         System.out.println("Bello!");
     }
 
-    public boolean validMovePath(int fromSquareRow, int fromSquareCol,
-                                 int toSquareRow, int toSquareCol) {
-        // You will implement this method in a later step
-        // each Piece will have a different valid path
-        return true;
+    public boolean validMovePath(int x1, int y1, int x2, int y2) { // any values up or down but in same x value
+        if((x1 == x2) && (y1 != y2)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public PieceMinion spawn(){
@@ -84,6 +89,14 @@ public class PieceMinion extends Piece implements Recruiter{
 
     public boolean canSpawn(){
         return original && numTimesSpawned < MAX_NUM_SPAWNED;
+    }
+
+    public boolean validSpawnPath(int x1, int y1, int x2, int y2){
+        if((x1 == x2) && (y1 != y2)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }

@@ -77,8 +77,12 @@ public class PieceBuzz extends Piece implements Attacker{
     }
 
     @Override
-    public boolean validAttackPath(int x1, int y1, int x2, int y2) {
-        return true;
+    public boolean validAttackPath(int x1, int y1, int x2, int y2) { //x row value along the same y value
+        if((y1 == y2) && (x1 != x2)){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void updateNumTimesBeenAttacked(){
@@ -90,16 +94,16 @@ public class PieceBuzz extends Piece implements Attacker{
         System.out.println("To Infinity and Beyond!");
     }
 
-    public boolean validMovePath(int fromSquareRow, int fromSquareCol,
-                                 int toSquareRow, int toSquareCol) {
-        // You will implement this method in a later step
-        // each Piece will have a different valid path
+    public boolean validMovePath(int fromSquareRow, int fromSquareCol, int toSquareRow, int toSquareCol) {
         return true;
     }
     public Piece spawn(){
         return null;
     }
     public boolean canSpawn(){
+        return false;
+    }
+    public boolean validSpawnPath(int x1, int y1, int x2, int y2){
         return false;
     }
 
