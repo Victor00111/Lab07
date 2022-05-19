@@ -114,6 +114,12 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter{
             this.flies = false;
         }
     }
+    public boolean isKing() {
+        return this.king;
+    }
+    public void setKing(boolean t) {
+        this.king = t;
+    }
     public void speak(){
         System.out.println("Go UD!");
     }
