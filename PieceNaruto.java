@@ -47,7 +47,12 @@ public class PieceNaruto extends Piece implements Attacker, Recruiter{
     public boolean isOriginal() {
         return super.original;
     }
-
+    public boolean isKing() {
+        return this.king;
+    }
+    public void setKing(boolean t) {
+        this.king = t;
+    }
     public void updateClone(){
         if(numClones == MAX_NUM_SPAWNS){
             this.canClone = false;
