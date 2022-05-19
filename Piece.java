@@ -17,6 +17,7 @@ public abstract class Piece {
     protected String teamColor;
     protected boolean hidden;
     protected boolean original;
+    protected boolean king;
     public Piece(char c, String s, boolean h, boolean o){
         this.symbol = c;
         this.teamColor = s;
@@ -34,6 +35,8 @@ public abstract class Piece {
     public abstract void setOriginal(boolean o);
     public abstract boolean canSpawn();
     public abstract Piece spawn();
+    public abstract boolean isKing();
+    public abstract void setKing(boolean t);
     public String toString() {
         return (teamColor+" "+symbol);
     }
