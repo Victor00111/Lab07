@@ -89,7 +89,12 @@ public class PieceBuzz extends Piece implements Attacker{
         this.numTimesBeenAttacked += 1;
         this.workingLaser = false;
     }
-
+    public boolean isKing() {
+        return this.king;
+    }
+    public void setKing(boolean t) {
+        this.king = t;
+    }
     public void speak(){
         System.out.println("To Infinity and Beyond!");
     }
