@@ -8,11 +8,11 @@ public class PieceNaruto extends Piece implements Attacker, Recruiter{
 
     final public int MAX_NUM_SPAWNS = 3;
 
-//Need to add in action, getters, setters, and check for clones
+    //Need to add in action, getters, setters, and check for clones
     public PieceNaruto(char symbol,
-                  String teamColor,
-                  int numAttacks, int numRecruits, int numClones,
-                  boolean hidden, boolean original){
+                       String teamColor,
+                       int numAttacks, int numRecruits, int numClones,
+                       boolean hidden, boolean original){
         super(symbol,teamColor,hidden,original);
         this.numAttacks = numAttacks;
         this.numRecruits = numRecruits;
@@ -26,15 +26,24 @@ public class PieceNaruto extends Piece implements Attacker, Recruiter{
                 false,true);
     }
 
-//Getters and setters probably need to add more
+    //Getters and setters probably need to add more
     public char getSymbol() {
         return super.symbol;
+    }
+    public void setNumRecruits(int i){
+        this.numRecruits = i;
     }
     public String getTeamColor() {
         return super.teamColor;
     }
     public int getNumAttacks()    {
         return this.numAttacks;
+    }
+    public void setHidden(boolean h){
+        super.hidden = h;
+    }
+    public void setOriginal(boolean o){
+        super.original = o;
     }
     public int getNumRecruits(){
         return this.numRecruits;
@@ -49,6 +58,9 @@ public class PieceNaruto extends Piece implements Attacker, Recruiter{
     }
     public boolean isKing() {
         return this.king;
+    }
+    public void setNumAttacks(int i){
+        this.numAttacks = i;
     }
     public void setKing(boolean t) {
         this.king = t;
@@ -113,6 +125,12 @@ public class PieceNaruto extends Piece implements Attacker, Recruiter{
 
         return check;
     }
+    public boolean canSpawn(){
+        return original && numClones < 3;
+    }
+    public void speak(){
+        System.out.println("NINJA WAY!");
+    }
 
     public boolean canRasengan(int x1, int y1, int x2, int y2){
         boolean check = false;
@@ -127,7 +145,7 @@ public class PieceNaruto extends Piece implements Attacker, Recruiter{
 
 
     //Implement clone may need to change
-    public PieceNaruto clone(){
+    public PieceNaruto spawn(){
         PieceNaruto clone = new PieceNaruto(Character.toLowerCase(super.symbol),
                 super.teamColor,this.numAttacks,this.numRecruits, this.numClones,
                 false,false);
