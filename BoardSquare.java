@@ -17,10 +17,13 @@ public class BoardSquare {
     private boolean isSpaceEmpty;
     private Piece piece;
     private String color;
+    private boolean teleportSquare;
+    
     public BoardSquare(String color) {
         super();
         this.isSpaceEmpty =true;
         this.color = color;
+        this.teleportSquare = false;
     }
 
     public Piece getPiece() {
@@ -32,6 +35,8 @@ public class BoardSquare {
     public boolean isEmpty() {
         return this.isSpaceEmpty;
     }
+    public void setTeleportSquare(boolean t){this.teleportSquare = t;}
+    public boolean isTeleportSquare() {return this.teleportSquare; }
     public void setPiece(Piece s) {
         this.piece=s;
         this.isSpaceEmpty=false;
@@ -46,7 +51,12 @@ public class BoardSquare {
     @Override
     public String toString() {
         if(this.piece==null) {
-            return "-------";
+            if (isTeleportSquare()) {
+                return "=======";
+            }
+            else {
+                return "-------";
+            }
         }
         else return "-"+this.piece.toString()+"-";
     }
