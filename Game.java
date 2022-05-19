@@ -28,6 +28,14 @@ public abstract class Game {
         for (Piece piece : team2.teamPieces) {
             board.findRandomEmptySpace().setPiece(piece);
         }
+        int teleportSquares = 0;
+        while(teleportSquares < 2) {
+            BoardSquare square = board.findRandomEmptySpace();
+            if (!square.isTeleportSquare()) {
+                square.setTeleportSquare(true);
+                teleportSquares++;
+            }
+        }
     }
 
     public Game (int numRows, int numColumns, Team firstTeam, Team secondTeam){
