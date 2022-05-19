@@ -58,7 +58,12 @@ public class PieceEvilMinion extends PieceMinion implements Attacker, Recruiter{
             this.hungry = false;
         }
     }
-
+    public boolean isKing() {
+        return this.king;
+    }
+    public void setKing(boolean t) {
+        this.king = t;
+    }
     public void speak(){
         System.out.println("Roar!");
     }
