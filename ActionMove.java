@@ -23,6 +23,15 @@ public class ActionMove extends Action{
         Piece tmp = game.getGameBoard().getSpaces()[row][col].getPiece();
         game.getGameBoard().getSpaces()[row][col].removePiece();
         game.getGameBoard().getSpaces()[mRow][mCol].setPiece(tmp);
+        if(game.getGameBoard().getSpaces()[mRow][mCol].isTeleportSquare()) {
+            for (int i = 0; i < game.getGameBoard().getNumRows(); i++) {
+                for (int j = 0; j < game.getGameBoard().getNumColumns(); j++) {
+                    if (game.getGameBoard().getSpaces()[i][j].isTeleportSquare() && game.getGameBoard().getSpaces()[i][j] != game.getGameBoard().getSpaces()[mRow][mCol]) {
+                        game.getGameBoard().getSpaces()[i][j].setPiece(tmp);
+                    }
+                }
+            }
+        }
         game.changeTurn();
     }
 }
