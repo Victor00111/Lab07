@@ -28,6 +28,10 @@ public class Controller {
         piecesTeamA.add(new PieceBuzz('B',"Blu",0,0, true,false,true));
         piecesTeamA.add(new PieceBlueHen('H',"Blu",0, 0,false,true));
         piecesTeamA.add(new PieceEvilMinion('E',"Blu",0, 0,0,false, true));
+        // Sets one Blu Piece to king
+        int index1 = (int)(Math.random() * (piecesTeamA.size() - 1));
+        piecesTeamA.get(index1).setKing(true);
+        System.out.println("" + piecesTeamA.get(index1) + " is Team Blu's King!");
         // Create a team object
         Team teamA = new Team("Blu",piecesTeamA);
 
@@ -38,6 +42,10 @@ public class Controller {
         piecesTeamB.add(new PieceBlueHen('H',"Red",0, 0,false,true));
         piecesTeamB.add(new PieceBuzz('B',"Red",0,0, true,false,true));
         piecesTeamB.add(new PieceEvilMinion('E',"Red",0, 0,0,false, true));
+        // Sets one Red Piece to king
+        int index2 = (int)(Math.random() * (piecesTeamA.size() - 1));
+        piecesTeamB.get(index2).setKing(true);
+        System.out.println("" + piecesTeamB.get(index2) + " is Team Red's King!");
         // Create a team object
         Team teamB = new Team("Red",piecesTeamB);
 
