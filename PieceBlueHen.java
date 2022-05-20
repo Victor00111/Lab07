@@ -68,6 +68,9 @@ public class PieceBlueHen extends Piece implements Attacker, Recruiter{
         this.numAttacks = numAttacks;
         updateFly();
     }
+    public boolean canAttack() {
+        return true;
+    }
 
     @Override
     public boolean validAttackPath(int x1, int y1, int x2, int y2) {
