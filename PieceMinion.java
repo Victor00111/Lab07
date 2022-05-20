@@ -57,7 +57,12 @@ public class PieceMinion extends Piece implements Recruiter{
     public void setNumRecruits(int numRecruits) {
         this.numRecruits = numRecruits;
     }
-
+    public boolean validAttackPath(int x, int y, int y1, int y2) {
+        return false;
+    }
+    public boolean canAttack() {
+        return false;
+    }
     @Override
     public boolean validRecruitPath(int x1, int y1, int x2, int y2) {
         if((x1 == x2) && (y1 != y2)){
