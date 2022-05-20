@@ -43,7 +43,7 @@ public class Controller {
         piecesTeamB.add(new PieceBlueHen('H',"Red",0, 0,false,true));
         piecesTeamB.add(new PieceBuzz('B',"Red",0,0, true,false,true));
         piecesTeamB.add(new PieceEvilMinion('E',"Red",0, 0,0,false, true));
-        piecesTeamA.add(new PieceNaruto('N',"Red",0, 0,0,false, true));
+        piecesTeamB.add(new PieceNaruto('N',"Red",0, 0,0,false, true));
         // Sets one Red Piece to king
         int index2 = (int)(Math.random() * (piecesTeamA.size() - 1));
         piecesTeamB.get(index2).setKing(true);
