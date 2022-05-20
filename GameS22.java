@@ -18,7 +18,32 @@ public class GameS22 extends Game{
     }
     @Override
     public boolean isAWinner() {
+        int tKing1 = 0;
+        int tKing2 = 0;
+        boolean standardWin;
+        boolean kingWin;
         if((team1.teamPieces.size() <= 0 && team2.teamPieces.size() > 0)||(team1.teamPieces.size() > 0 && team2.teamPieces.size() <= 0)){
+            standardWin = true;
+        }else{
+            standardWin = false;
+        }
+
+        for(int i = 0; i < team1.teamPieces.size();i++){
+            if(team1.getTeamPieces().get(i).isKing() == true){
+                tKing1 += 1;
+            }
+        }
+        for(int i = 0; i < team2.teamPieces.size();i++){
+            if(team2.getTeamPieces().get(i).isKing() == true){
+                tKing2 += 1;
+            }
+        }
+        if(tKing1 == 0 || tKing2 == 0){
+            kingWin = true;
+        }else{
+            kingWin = false;
+        }
+        if(kingWin == true || standardWin == true){
             return true;
         }else{
             return false;
