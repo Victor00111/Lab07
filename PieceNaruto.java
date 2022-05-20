@@ -39,6 +39,9 @@ public class PieceNaruto extends Piece implements Attacker, Recruiter{
     public int getNumAttacks()    {
         return this.numAttacks;
     }
+    public boolean canAttack() {
+        return true;
+    }
     public void setHidden(boolean h){
         super.hidden = h;
     }
