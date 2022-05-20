@@ -25,15 +25,17 @@ public abstract class Piece {
         this.original = o;
     }
     public abstract void speak();
-    public abstract boolean validMovePath(int fromSquareRow,int fromSquareCol, int toSquareRow,int toSquareCol);
     public abstract char getSymbol();
+    public abstract boolean validMovePath(int fromSquareRow,int fromSquareCol, int toSquareRow,int toSquareCol);
     public abstract boolean validSpawnPath(int x1, int y1, int x2, int y2);
+    public abstract boolean validAttackPath(int x1, int y1, int x2, int y2);
     public abstract String getTeamColor();
     public abstract boolean isHidden();
     public abstract boolean isOriginal();
     public abstract void setHidden(boolean h);
     public abstract void setOriginal(boolean o);
     public abstract boolean canSpawn();
+    public abstract boolean canAttack();
     public abstract Piece spawn();
     public abstract boolean isKing();
     public abstract void setKing(boolean t);
