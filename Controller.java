@@ -28,6 +28,7 @@ public class Controller {
         piecesTeamA.add(new PieceBuzz('B',"Blu",0,0, true,false,true));
         piecesTeamA.add(new PieceBlueHen('H',"Blu",0, 0,false,true));
         piecesTeamA.add(new PieceEvilMinion('E',"Blu",0, 0,0,false, true));
+        piecesTeamA.add(new PieceNaruto('N',"Blu",0, 0,0,false, true));
         // Sets one Blu Piece to king
         int index1 = (int)(Math.random() * (piecesTeamA.size() - 1));
         piecesTeamA.get(index1).setKing(true);
@@ -42,6 +43,7 @@ public class Controller {
         piecesTeamB.add(new PieceBlueHen('H',"Red",0, 0,false,true));
         piecesTeamB.add(new PieceBuzz('B',"Red",0,0, true,false,true));
         piecesTeamB.add(new PieceEvilMinion('E',"Red",0, 0,0,false, true));
+        piecesTeamA.add(new PieceNaruto('N',"Red",0, 0,0,false, true));
         // Sets one Red Piece to king
         int index2 = (int)(Math.random() * (piecesTeamA.size() - 1));
         piecesTeamB.get(index2).setKing(true);
@@ -60,6 +62,7 @@ public class Controller {
     }
 
     public void carryOutAction(int row, int col, int mRow, int mCol, char actionType) {
+        //System.out.println(game.getGameBoard().getSquares()[row][col].getPiece());
         if (actionType == 'M' || actionType == 'm') {
             Action action = new ActionMove(game, row, col, mRow, mCol);
             action.performAction();
@@ -84,9 +87,13 @@ public class Controller {
         while(!gameHasEnded) {
             while(!done) {
                 this.text.getNextPlayersAction(game);
+                //this.text.updateView(game);
+                //System.out.println(game.getGameBoard().getSquares()[text.getRow()][text.getCol()].getPiece());
                 if (Rules.checkValidAction(game, text.getRow(), text.getCol(), text.getMRow(), text.getMCol(), text.getUsersNextActionType())) {
                     done = true;
+                    this.text.updateView(game);
                 }
+                this.text.updateView(game);
             }
             this.carryOutAction(text.getRow(), text.getCol(), text.getMRow(), text.getMCol(), text.getUsersNextActionType());
             this.text.updateView(game);
