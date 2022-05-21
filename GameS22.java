@@ -52,17 +52,34 @@ public class GameS22 extends Game{
 
     @Override
     public Team getWinner() {
-        if(isGameEnded() == false){
+        if(isAWinner() == false){
             return null;
-        }else{
+        }
+        else {
+            boolean team1Win = false;
+            for(int i = 0; i < team1.teamPieces.size();i++){
+                if(team1.getTeamPieces().get(i).isKing() == true){
+                    team1Win = true;
+                }
+                else {
+                    team1Win = false;
+                }
+            }
             if(isAWinner() == true){
                 if(team1.teamPieces.size() > 0){
                     return team1;
-                }else{
+                }
+                else{
                     return team2;
                 }
-            }else{
-                return null;
+            }
+            else{
+                if (team1Win) {
+                    return team1;
+                }
+                else {
+                    return team2;
+                }
             }
         }
     }
