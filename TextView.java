@@ -34,10 +34,10 @@ public class TextView {
 
         Scanner scr = new Scanner(System.in);
         while (!done) {
-            System.out.println("Please enter either A, R, M, or S");
+            System.out.println("Please enter either A, R, M, S, or B");
             char userInput = scr.next().charAt(0);
             char UpperFirstChar = Character.toUpperCase(userInput);
-            if (UpperFirstChar == 'A' || UpperFirstChar == 'R' || UpperFirstChar == 'M' || UpperFirstChar == 'S') {
+            if (UpperFirstChar == 'A' || UpperFirstChar == 'R' || UpperFirstChar == 'M' || UpperFirstChar == 'S' || UpperFirstChar == 'B') {
                 userAction = userInput;
                 done = true;
             }
