@@ -79,6 +79,10 @@ public class Controller {
             Action action = new ActionAttack(game, row, col, mRow, mCol);
             action.performAction();
         }
+        if (actionType == 'B' || actionType == 'b') {
+            Action action = new ActionRasengan(game, row, col, mRow, mCol);
+            action.performAction();
+        }
     }
 
     public void playGame() {
