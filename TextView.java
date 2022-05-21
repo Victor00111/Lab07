@@ -91,7 +91,7 @@ public class TextView {
     }
 
     public void printEndOfGameMessage(GameS22 game) {
-        System.out.println("Game has ended. " + game.getWinner() + " has won.");
+        System.out.println("Game has ended. " + game.getWinner().getTeamColor() + " has won.");
     }
 
 }
