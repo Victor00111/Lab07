@@ -28,6 +28,7 @@ public class ActionMove extends Action{
                 for (int j = 0; j < game.getGameBoard().getNumColumns(); j++) {
                     if (game.getGameBoard().getSpaces()[i][j].isTeleportSquare() && game.getGameBoard().getSpaces()[i][j] != game.getGameBoard().getSpaces()[mRow][mCol]) {
                         game.getGameBoard().getSpaces()[i][j].setPiece(tmp);
+                        game.getGameBoard().getSpaces()[mRow][mCol].removePiece();
                     }
                 }
             }
