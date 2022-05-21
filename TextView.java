@@ -26,6 +26,7 @@ public class TextView {
     public int getCol() {return this.col;}
     public int getMRow() {return this.mRow;}
     public int getMCol() {return this.mCol;}
+    public char getActionType() {return this.actionType;}
 
     public static char getUsersNextActionType() {
         char userAction = 'N';
