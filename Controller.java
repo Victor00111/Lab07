@@ -84,18 +84,15 @@ public class Controller {
     public void playGame() {
         boolean gameHasEnded = false;
         boolean done = false;
-        while(!gameHasEnded) {
-            while(!done) {
+        while(!done) {
                 this.text.getNextPlayersAction(game);
-                //this.text.updateView(game);
-                //System.out.println(game.getGameBoard().getSquares()[text.getRow()][text.getCol()].getPiece());
-                if (Rules.checkValidAction(game, text.getRow(), text.getCol(), text.getMRow(), text.getMCol(), text.getUsersNextActionType())) {
+                // this.text.updateView(game);
+                // System.out.println(game.getGameBoard().getSquares()[text.getRow()][text.getCol()].getPiece());
+                if (Rules.checkValidAction(game, text.getRow(), text.getCol(), text.getMRow(), text.getMCol(), text.getActionType())) {
                     done = true;
-                    this.text.updateView(game);
                 }
-                this.text.updateView(game);
             }
-            this.carryOutAction(text.getRow(), text.getCol(), text.getMRow(), text.getMCol(), text.getUsersNextActionType());
+            this.carryOutAction(text.getRow(), text.getCol(), text.getMRow(), text.getMCol(), text.getActionType());
             this.text.updateView(game);
             if (game.isAWinner()) {
                 gameHasEnded = true;
